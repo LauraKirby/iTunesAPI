@@ -1,0 +1,19 @@
+<% include ../partials/header %>
+<h1>Add A User</h1>
+
+<form action="/users" method='POST'>
+	<div>
+	  <label for="name">Name:</label>
+	  <input type="text" name="user[name]" id="name">
+  </div>
+  <div>
+  	<label for="avatar">Avatar Image URL</label>
+  	<input type="text" name="user[avatar]" id="avatar" src=''>
+  </div>
+
+  <div>
+  	<input type="submit" value="Add User" class="btn btn-success">
+  </div>
+</form>
+
+<% include ../partials/footer %>
