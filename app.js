@@ -28,9 +28,12 @@ app.get('/users/new', function(req, res){
 });
 
 //create user - with user data and redirect to '/'
-// app.post('/users',function(req, res){
-// 	var user = new db.User(req.body.user);
-// })
+app.post('/users',function(req, res){
+	var user = new db.User(req.body.user);
+	res.redirect('/')
+})
+
+
 app.listen(3000, function() {
   console.log("You started the serever on port 3000, well done!");
 });
