@@ -12,10 +12,6 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 
-
-
-
-
 //redirect - remember to insert another route as your parameter 
 app.get('/', function(req, res) {
   res.redirect('/users');

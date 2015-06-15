@@ -6,9 +6,6 @@ $(function() {
 		$("userInput")
 	};
 
-
-				
-
 	// $("audio").on("canplay", function(){
 	// 			$("audio")[0].play();
 
@@ -17,10 +14,5 @@ $(function() {
 
 				$("audio")[0].play();
   
-
-	// 		// var albumImage = dataObj.artworkUrl30; 
-	// 		// console.log(albumImage); 
-	// 		// $("img").attr("src", albumImage); 
-	// 		// $("img").show();
 	 	})
 	}); 

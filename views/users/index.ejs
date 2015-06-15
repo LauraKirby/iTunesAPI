@@ -22,7 +22,7 @@
 				<td><img src="<%= user.avatar %>" alt="Avatar" width=200 height=200></td>
 				<td><%= user.score %></td>
 				<% console.log(user.score); %>
-				<td><a href="/users/<%= user.id %>/edit">Edit</a></td>
+				<td><a href="/users/<%= user.id %>/edit" >Edit</a></td>
 				<td>
 					<form action="/users/<%= user.id %>?_method=DELETE" method="POST">
 					  <input type="submit" value="Delete" class="btn btn-sm btn-danger"> </form>
