@@ -1,0 +1,13 @@
+	<% include ../partials/header %>
+
+	<button class="startButton btn btn-primary" type="button">Play Song</button>
+
+  <audio id="audio_preview" src="<%= dataObj.previewUrl %>"></audio> 
+	
+	<form id="guessSongForm">
+		<label for="userGuess">Your Guess:</label> 
+		<input class="userGuess" type="text" name="userGuess" value="">
+		<button class="submitButton btn btn-success" value="Submit" type"submit">Submit Guess</button>
+	</form>
+
+	<% include ../partials/footer %>

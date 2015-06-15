@@ -2,14 +2,18 @@ var express = require('express'),
     app = express(), 
     methodOverride = require('method-override'), 
     bodyParser = require('body-parser'),
-    morgan = require('morgan');
-    db = require("./models");
+    morgan = require('morgan'),
+    db = require("./models"),
+    request = require('request');
 
 app.set('view engine', 'ejs');
 app.use(morgan('tiny'));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
+
+
+
 
 
 //redirect - remember to insert another route as your parameter 
@@ -39,15 +43,33 @@ app.post('/users',function(req, res){
 			res.redirect('/users') 
 		}
 	}); 
-	//var user = new db.User(req.body.user);
-	// user.save(function(err){
-	// 	if (err) {
-	// 		res.render('users/404'); 
-	// 	}
-	// 	else {
-	// 		res.redirect('/') //redirects to index pg but cannot yet see the updated user info
-	// 	}
-	// });
+});
+
+//request to iTunes
+app.get('/users/startGame', function(req, res){
+	var songIds = ["995535015", "966411602", "823593456", "956689796", "943946671",
+	"982388023", "907242704", "201281527", "656801339", "910038357",
+	"250038575", "878000348",  "794095205",  "1645339",  "400835962",
+	"325618", "191924084",  "376116617",  "169003415",  "51958108",
+	"76532142", "192688540", "684811768", "344799464", "217633921",
+	"192811017", "258404365", "71068886", "640047583", "517438248" ];
+	var songId = songIds[Math.floor(Math.random()*songIds.length)];
+  console.log(songId); 
+  var urlWithSongId = "https://itunes.apple.com/us/lookup?id=" + songId;
+  request.get(urlWithSongId, function(err, response, itunesData){
+  	if (err) {
+  		res.render('users/404');
+  	}
+  	else if (!err && response.statusCode === 200) {
+  		itunesDataParsed = JSON.parse(itunesData); 
+  		var dataObj = itunesDataParsed.results[0];
+  		//var previewSong = dataObj.previewUrl; 
+  		console.log(itunesDataParsed); 
+  		res.render('users/startGame', {dataObj: dataObj}); 
+  	}
+  });
+	
+
 });
 
 //SHOW 
@@ -90,6 +112,8 @@ app.delete('/users/:id', function(req, res){
 			res.redirect('/users') 
 	});
 });
+
+
 
 // CATCH ALL
 app.get('*', function(req,res){

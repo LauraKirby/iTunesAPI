@@ -27,8 +27,6 @@
 					<form action="/users/<%= user.id %>?_method=DELETE" method="POST">
 					  <input type="submit" value="Delete" class="btn btn-sm btn-danger"> </form>
 				</td>
-				<% console.log(user.avatar); %>
-
 			</tr>
 			<% }); %> 
 	</tbody>
@@ -36,7 +34,10 @@
 
 <div> 
   <input type="submit" value="New User" class="btn btn-primary">
+
 </div>
+ <a href="/users/startGame">Start Game</a>
+ 
 </form>
 
 <% include ../partials/footer %>
