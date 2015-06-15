@@ -1,4 +1,14 @@
 <% include ../partials/header %>
+<h1><%= user.name %>'s Details</h1>
 
+  <h3>
+    Avatar: <img src="<%= user.avatar %>" alt="Avatar" width=200 height=200>	 
+  </h3>
+  <h3>
+    Score: <%= user.score %> 
+  </h3>
+  <h3>
+    Date: <%= user.date %> 
+  </h3>
 
 <% include ../partials/footer %>

@@ -1,8 +1,19 @@
 <% include ../partials/header %>
-
-<div>
-	<label for="users">User One - Name: </label>
-	<input type="text" name="score[userOneName]" id="users" class="form-control">
-</div>
+<form action="/users/<%= user.id %>?_method=PUT" method="POST"> 
+	<div>
+		<label for="name">User Name: </label>
+		<input type="text" name="user[name]" id="" class="form-control" value= "<%= user.name %>" autofocus>
+	</div>
+	<div>
+		<label for="avatar">Avatar:</label>
+		<input type="image" name="user[avatar]" id="" class="form-control" value= "<%= user.avatar %>">
+	</div>
+	<div>
+		<label for=""></label>
+	</div>
+	<div class="form-group">
+	  <input type="submit" value="Done" class ="btn btn-info btn-lg">
+	</div>
+</form>
 
 <% include ../partials/footer %>
