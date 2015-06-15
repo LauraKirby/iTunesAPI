@@ -22,10 +22,10 @@
 				<td><img src="<%= user.avatar %>" alt="Avatar" width=200 height=200></td>
 				<td><%= user.score %></td>
 				<% console.log(user.score); %>
-				<td><a href="/users/<%= user.id %>/edit" >Edit</a></td>
+				<td><a href="/users/<%= user.id %>/edit" class ="btn btn-info">Edit</a></td>
 				<td>
 					<form action="/users/<%= user.id %>?_method=DELETE" method="POST">
-					  <input type="submit" value="Delete" class="btn btn-sm btn-danger"> </form>
+					  <input type="submit" value="Delete" class="btn btn-default"> </form>
 				</td>
 			</tr>
 			<% }); %> 
@@ -33,10 +33,18 @@
 </table>
 
 <div> 
-  <input type="submit" value="New User" class="btn btn-primary">
-
+  <input type="submit" value="New User" class="btn btn-warning">
 </div>
- <a href="/users/startGame">Start Game</a>
+<div>  
+  <p></p>
+</div>
+<div>
+	 <a href="/users/startGame" class="btn btn-success">Start Game</a>
+</div>
+<div>  
+  <p></p>
+</div>
+
  
 </form>
 
